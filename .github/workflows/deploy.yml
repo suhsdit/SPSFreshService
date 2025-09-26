@@ -1,0 +1,68 @@
+name: SPSFreshService
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'SPSFreshService/**'
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'SPSFreshService/**'
+
+env:
+  major: 0
+  minor: 3
+  patch: ${{ github.run_number }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Build Script
+      env:
+        buildVer: 0.3.${{ github.run_number }}
+      run: pwsh -File ./build.ps1 -BuildVersion "0.3.${{ github.run_number }}"
+
+    - name: Run Pester tests
+      shell: pwsh
+      run: |
+        Install-Module -Name Pester -Force
+        Invoke-Pester -Script "./Tests/1. Module Tests/SPSFreshService.Module.Tests.ps1" -OutputFile "./Tests/1. Module Tests/SPSFreshService.Module.Tests.XML" -OutputFormat NUnitXml -EnableExit $true
+
+    - name: Publish test results
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: ./Tests/1. Module Tests/SPSFreshService.Module.Tests.XML
+
+  deploy:
+      needs: test
+      runs-on: ubuntu-latest
+      if: github.ref == 'refs/heads/main'
+  
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+  
+      - name: Run build script
+        env:
+          buildVer: 0.3.${{ github.run_number }}
+        run: pwsh -File ./build.ps1 -BuildVersion "0.3.${{ github.run_number }}"
+    
+      - name: Install dependencies
+        shell: pwsh
+        run: |
+          Install-Module -Name AeriesAPI -Force
+  
+      - name: Publish Module to PSGallery
+        shell: pwsh
+        run: |
+          $PSGalleryApiKey = '${{ secrets.SPSFreshService_NUGET_API_KEY }}'
+          Install-Module -Name PowerShellGet -Force
+          Publish-Module -Path ./SPSFreshService -NuGetApiKey $PSGalleryApiKey
