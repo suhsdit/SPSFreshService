@@ -5,11 +5,13 @@ on:
     branches: [main]
     paths:
       - 'SPSFreshService/**'
+      - '.github/workflows/**'
   pull_request:
     branches: [main]
     types: [opened, synchronize, reopened]
     paths:
       - 'SPSFreshService/**'
+      - '.github/workflows/**'
 
 env:
   major: 0
