@@ -57,10 +57,8 @@ The module now includes comprehensive functions for managing FreshService Soluti
 Install the module from your organization's package feed:
 
 ```powershell
-# Install from Azure DevOps Artifacts (if you have access)
-Install-Module -Name SPSFreshService -Repository YourOrgFeed
 
-# Or install from a local package
+# Install from PSGallery
 Install-Module -Name SPSFreshService -Repository PSGallery
 ```
 
