@@ -22,7 +22,7 @@ Foreach($import in @($Public + $Private))
 
 # Export Public functions ($Public.BaseName) for WIP modules
 
-# Aeries Config info, set script variables
+# FS Config info, set script variables
 New-Variable -Name SPSFreshServiceConfigName -Scope Script -Force
 New-Variable -Name SPSFreshServiceConfigRoot -Scope Script -Force
 $SPSFreshServiceConfigRoot = "$Env:USERPROFILE\AppData\Local\powershell\SPSFreshService"

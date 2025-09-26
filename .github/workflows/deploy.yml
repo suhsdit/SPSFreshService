@@ -56,11 +56,6 @@ jobs:
         env:
           buildVer: 0.3.${{ github.run_number }}
         run: pwsh -File ./build.ps1 -BuildVersion "0.3.${{ github.run_number }}"
-    
-      - name: Install dependencies
-        shell: pwsh
-        run: |
-          Install-Module -Name AeriesAPI -Force
   
       - name: Publish Module to PSGallery
         shell: pwsh

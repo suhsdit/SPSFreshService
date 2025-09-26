@@ -2,13 +2,13 @@ PSTOPIC
     about_SPSFreshService
 
 SHORT DESCRIPTION
-    SPSFreshService allows you to work with the Aeries API through PowerShell functions
+    SPSFreshService allows you to work with the Fresh Service API through PowerShell functions
 
 LONG DESCRIPTION
-    SPSFreshService allows you to work with the Aeries API through PowerShell functions
+    SPSFreshService allows you to work with the Fresh Service API through PowerShell functions
 
     You can find API documentation here:
-        https://support.aeries.com/support/solutions/articles/14000077926-aeries-api-full-documentation
+        https://api.freshservice.com/
 
 DETAILED DESCRIPTION
-    This is a module that allows querying for Aeries data via the Aeries API.
+    This is a module that allows querying for Fresh Service data via the Fresh Service API.
