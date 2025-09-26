@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>SPSFreshService</id>
+    <version>0.0.1</version>
+    <authors>Jesse Geron</authors>
+    <owners>Shasta Union High School District</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This module is used to get data from and write data into FreshService.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>(c) Jesse Geron. All rights reserved.</copyright>
+    <tags>PSModule PSIncludes_Function PSFunction_Connect-FreshServiceAPI PSFunction_Get-FsTicket PSFunction_Get-SPSFreshServiceConfiguration PSFunction_New-SPSFreshServiceConfiguration PSFunction_Set-SPSFreshServiceWindowsConfiguration PSCommand_Connect-FreshServiceAPI PSCommand_Get-FsTicket PSCommand_Get-SPSFreshServiceConfiguration PSCommand_New-SPSFreshServiceConfiguration PSCommand_Set-SPSFreshServiceWindowsConfiguration</tags>
+  </metadata>
+</package>
